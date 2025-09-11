@@ -1,4 +1,0 @@
-mysql -u root -p
-CREATE DATABASE edificio_admin;
-USE edificio_admin;
-SOURCE C:\Users\yamil\Desktop\hhh\database.sql;
