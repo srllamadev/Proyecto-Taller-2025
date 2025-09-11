@@ -1,0 +1,837 @@
+/* Estilos Bento Box - Administración de Edificio */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Variables CSS para la paleta de colores */
+:root {
+    --color-dark: #0F1226;
+    --color-bronze: #AB987A;
+    --color-red: #FF533D;
+    --color-light: #F5F5F5;
+    --gradient-primary: linear-gradient(135deg, var(--color-dark) 0%, #1a1f3a 100%);
+    --gradient-secondary: linear-gradient(135deg, var(--color-bronze) 0%, #c4a883 100%);
+    --gradient-accent: linear-gradient(135deg, var(--color-red) 0%, #ff6b50 100%);
+    --shadow-soft: 0 8px 32px rgba(15, 18, 38, 0.1);
+    --shadow-medium: 0 12px 48px rgba(15, 18, 38, 0.15);
+    --shadow-strong: 0 20px 64px rgba(15, 18, 38, 0.25);
+}
+
+/* Reset y configuración base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--color-light);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: var(--color-dark);
+    overflow-x: hidden;
+}
+
+/* Patrón de fondo sutil */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 25% 25%, rgba(171, 152, 122, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(255, 83, 61, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Navegación con estilo Bento */
+.navbar {
+    background: var(--gradient-primary) !important;
+    backdrop-filter: blur(20px);
+    border: none;
+    box-shadow: var(--shadow-medium);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--color-light) !important;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+    color: var(--color-bronze) !important;
+}
+
+.navbar-brand i {
+    color: var(--color-red);
+    margin-right: 12px;
+    font-size: 1.6rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--color-light) !important;
+    padding: 12px 20px !important;
+    margin: 0 8px;
+    border-radius: 16px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-accent);
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+    left: 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+}
+
+/* Contenedor principal con grid Bento */
+.container {
+    padding: 2rem 1rem;
+    max-width: 1400px;
+}
+
+/* Sistema de tarjetas Bento */
+.card {
+    background: white;
+    border: none;
+    border-radius: 24px;
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-accent);
+    transform: scaleX(0);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: left;
+}
+
+.card:hover::before {
+    transform: scaleX(1);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-strong);
+}
+
+.card-header {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    transform: rotate(-15deg);
+    pointer-events: none;
+}
+
+.card-header h5 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.card-header i {
+    color: var(--color-red);
+    margin-right: 12px;
+    font-size: 1.6rem;
+    filter: drop-shadow(0 2px 8px rgba(255, 83, 61, 0.3));
+}
+
+.card-header .btn {
+    position: relative;
+    z-index: 2;
+}
+
+.card-header .btn {
+    position: relative;
+    z-index: 2;
+}
+
+/* Tablas con estilo Bento */
+.table-responsive {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(15, 18, 38, 0.1);
+}
+
+.table {
+    margin: 0;
+    font-weight: 500;
+}
+
+.table thead th {
+    background: var(--gradient-secondary);
+    color: white;
+    border: none;
+    padding: 1.5rem 1.25rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.table thead th:first-child {
+    border-top-left-radius: 16px;
+}
+
+.table thead th:last-child {
+    border-top-right-radius: 16px;
+}
+
+.table tbody tr {
+    border: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.table tbody tr:hover {
+    background: linear-gradient(90deg, rgba(255, 83, 61, 0.05) 0%, rgba(171, 152, 122, 0.05) 100%);
+    transform: scale(1.01);
+}
+
+.table tbody td {
+    padding: 1.25rem;
+    border: none;
+    border-bottom: 1px solid rgba(15, 18, 38, 0.08);
+    vertical-align: middle;
+    font-weight: 500;
+}
+
+/* Botones con diseño Bento dinámico */
+.btn {
+    border: none;
+    border-radius: 16px;
+    font-weight: 600;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    box-shadow: var(--shadow-soft);
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:hover::before {
+    width: 300%;
+    height: 300%;
+}
+
+.btn-primary {
+    background: var(--gradient-accent);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+    color: white;
+}
+
+.btn-secondary {
+    background: var(--gradient-secondary);
+    color: white;
+}
+
+.btn-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+    color: white;
+}
+
+.btn-sm {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    border-radius: 12px;
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-outline-primary {
+    background: transparent;
+    border: 2px solid var(--color-red);
+    color: var(--color-red);
+}
+
+.btn-outline-primary:hover {
+    background: var(--gradient-accent);
+    border-color: transparent;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-outline-danger {
+    background: transparent;
+    border: 2px solid #dc3545;
+    color: #dc3545;
+}
+
+.btn-outline-danger:hover {
+    background: linear-gradient(135deg, #dc3545 0%, #e55565 100%);
+    border-color: transparent;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-outline-danger:hover {
+    background: linear-gradient(135deg, #dc3545 0%, #e55565 100%);
+    border-color: transparent;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Badges con estilo dinámico */
+.badge {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    overflow: hidden;
+}
+
+.badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.badge:hover::before {
+    left: 100%;
+}
+
+.badge.bg-success {
+    background: linear-gradient(135deg, #10b981 0%, #34d399 100%) !important;
+    color: white;
+}
+
+.badge.bg-primary {
+    background: var(--gradient-accent) !important;
+    color: white;
+}
+
+.badge.bg-warning {
+    background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%) !important;
+    color: white;
+}
+
+.badge.bg-bronze {
+    background: var(--gradient-secondary) !important;
+    color: white;
+}
+
+.badge.bg-info {
+    background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%) !important;
+    color: white;
+}
+
+.badge.bg-secondary {
+    background: linear-gradient(135deg, #64748b 0%, #94a3b8 100%) !important;
+    color: white;
+}
+
+/* Modales con diseño Bento */
+.modal-content {
+    border: none;
+    border-radius: 24px;
+    box-shadow: var(--shadow-strong);
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.modal-backdrop {
+    background-color: rgba(15, 18, 38, 0.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.modal-header {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    padding: 2rem;
+    position: relative;
+}
+
+.modal-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    transform: rotate(-15deg);
+    pointer-events: none;
+}
+
+.modal-title {
+    font-weight: 700;
+    font-size: 1.4rem;
+    position: relative;
+    z-index: 2;
+}
+
+.modal-body {
+    padding: 2rem;
+    background: white;
+}
+
+.modal-footer {
+    background: var(--color-light);
+    border: none;
+    padding: 1.5rem 2rem;
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    opacity: 0.8;
+    position: relative;
+    z-index: 2;
+}
+
+.btn-close:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Formularios con estilo Bento */
+.form-label {
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+}
+
+.form-control, .form-select {
+    border: 2px solid rgba(15, 18, 38, 0.1);
+    border-radius: 16px;
+    padding: 14px 20px;
+    font-weight: 500;
+    background: white;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: inset 0 2px 8px rgba(15, 18, 38, 0.05);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--color-red);
+    box-shadow: 0 0 0 0.25rem rgba(255, 83, 61, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Alertas dinámicas */
+.alert {
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+}
+
+.alert::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: currentColor;
+}
+
+.alert-success {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(52, 211, 153, 0.1) 100%);
+    color: #059669;
+    border-left: 4px solid #10b981;
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(248, 113, 113, 0.1) 100%);
+    color: #dc2626;
+    border-left: 4px solid #ef4444;
+}
+
+/* Animaciones y transiciones Bento */
+.content-section {
+    animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efectos especiales y microinteracciones */
+.card-body {
+    padding: 2rem;
+    position: relative;
+}
+
+/* Efecto de brillo en hover para elementos interactivos */
+.btn, .card, .form-control, .badge {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Números y monedas con estilo especial */
+.currency {
+    font-family: 'Inter', monospace;
+    font-weight: 700;
+    color: var(--color-red);
+    font-size: 1.1rem;
+    text-shadow: 0 2px 8px rgba(255, 83, 61, 0.2);
+}
+
+/* Estados de departamentos con iconos dinámicos */
+.estado-ocupado {
+    color: #10b981;
+    font-weight: 700;
+    position: relative;
+}
+
+.estado-ocupado::before {
+    content: '●';
+    margin-right: 8px;
+    animation: heartbeat 2s infinite;
+}
+
+.estado-libre {
+    color: var(--color-red);
+    font-weight: 700;
+    position: relative;
+}
+
+.estado-libre::before {
+    content: '○';
+    margin-right: 8px;
+    animation: bounce 1.5s infinite;
+}
+
+.estado-mantenimiento {
+    color: #f59e0b;
+    font-weight: 700;
+    position: relative;
+}
+
+.estado-mantenimiento::before {
+    content: '⚠';
+    margin-right: 8px;
+    animation: shake 2s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    75% { transform: translateX(2px); }
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-light);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gradient-secondary);
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gradient-accent);
+}
+
+/* Grid Bento para diferentes tamaños de pantalla */
+@media (min-width: 1200px) {
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+        align-items: start;
+    }
+    
+    .content-section {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Responsividad mejorada */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    
+    .card-header {
+        padding: 1.5rem;
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+    
+    .card-header .btn {
+        margin-top: 1rem;
+        width: 100%;
+    }
+    
+    .table-responsive {
+        font-size: 0.9rem;
+        border-radius: 16px;
+    }
+    
+    .table thead th,
+    .table tbody td {
+        padding: 1rem 0.75rem;
+    }
+    
+    .btn-sm {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+        min-width: 40px;
+        min-height: 40px;
+    }
+    
+    .modal-body,
+    .modal-header,
+    .modal-footer {
+        padding: 1.5rem;
+    }
+    
+    .form-control, .form-select {
+        padding: 12px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem 0.5rem;
+    }
+    
+    .card {
+        border-radius: 20px;
+    }
+    
+    .card-header h5 {
+        font-size: 1.2rem;
+    }
+    
+    .nav-link {
+        padding: 8px 12px !important;
+        margin: 0 4px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Efectos de carga suaves */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+    position: relative;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    margin: -15px 0 0 -15px;
+    border: 3px solid var(--color-light);
+    border-top: 3px solid var(--color-red);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Estados vacíos con estilo */
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--color-bronze);
+    opacity: 0.8;
+}
+
+.empty-state i {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.6;
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Mejoras en accesibilidad y focus */
+.btn:focus,
+.form-control:focus,
+.form-select:focus {
+    outline: 3px solid rgba(255, 83, 61, 0.3);
+    outline-offset: 2px;
+}
+
+/* Transiciones globales suaves */
+* {
+    transition-property: transform, box-shadow, background, color, border;
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efecto de cristal para elementos flotantes */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Gradientes animados para elementos especiales */
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.animated-gradient {
+    background: linear-gradient(-45deg, var(--color-dark), var(--color-bronze), var(--color-red), var(--color-dark));
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+}
+
+/* Sombras dinámicas para elementos importantes */
+.dynamic-shadow {
+    box-shadow: 
+        0 4px 8px rgba(15, 18, 38, 0.1),
+        0 8px 16px rgba(255, 83, 61, 0.1),
+        0 16px 32px rgba(171, 152, 122, 0.1);
+}
