@@ -1,8 +1,8 @@
-#Sistema de Administración de Edificio
+# Sistema de Administración de Edificio
 
 Este es un proyecto full stack completo para la administración de un edificio residencial, desarrollado con tecnologías web modernas.
 
-##Características
+## Características
 
 - **Backend**: Python con Flask y SQLite
 - **Frontend**: HTML, CSS y JavaScript vanilla con Bootstrap
