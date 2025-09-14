@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración de Edificio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navegación -->
+    <nav>
+        <div class="logo">
+            <i class="fas fa-building"></i>
+            <span>Edificio Admin</span>
+        </div>
+        <div class="nav-links">
+            <a href="#hero" class="active">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#galeria">Galería</a>
+            <a href="#testimonios">Testimonios</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+        <div class="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+    
+    <!-- Sección Hero -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Administra tu Edificio</h1>
+            <p>Sistema integral de gestión para administrar departamentos, inquilinos, empleados y finanzas de manera eficiente y segura.</p>
+            <button onclick="window.location.href='login.html'" class="cta-button">
+                <i class="fas fa-sign-in-alt"></i>
+                Acceder al Sistema
+            </button>
+            
+            <div class="bento-grid">
+                <div class="bento-item"><i class="fas fa-building"></i></div>
+                <div class="bento-item"><i class="fas fa-users"></i></div>
+                <div class="bento-item"><i class="fas fa-user-tie"></i></div>
+                <div class="bento-item"><i class="fas fa-dollar-sign"></i></div>
+                <div class="bento-item"><i class="fas fa-chart-line"></i></div>
+            </div>
+        </div>
+    </section>
+     
+    <!-- Sección Servicios -->
+    <section id="servicios">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <div class="services-container">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>Gestión de Departamentos</h3>
+                <p>Control completo de todas las unidades habitacionales, desde información básica hasta estado de ocupación y mantenimiento.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Administración de Inquilinos</h3>
+                <p>Registro detallado de inquilinos, contratos de arrendamiento, historial de pagos y comunicación directa.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <h3>Control de Personal</h3>
+                <p>Gestión integral del personal del edificio: porteros, conserjes, limpieza y administración con horarios y responsabilidades.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-credit-card"></i>
+                </div>
+                <h3>Sistema Financiero</h3>
+                <p>Control total de ingresos y egresos, generación de reportes financieros y seguimiento de pagos pendientes.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3>Reportes y Analytics</h3>
+                <p>Análisis detallado de ocupación, ingresos, gastos y tendencias para una toma de decisiones informada.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Seguridad y Respaldos</h3>
+                <p>Sistema seguro con autenticación de usuarios, encriptación de datos y respaldos automáticos de información.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección Galería -->
+    <section id="galeria">
+        <h2 class="section-title">Interfaz del Sistema</h2>
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Dashboard">
+                <div class="gallery-overlay">
+                    <h3>Dashboard Principal</h3>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Departamentos">
+                <div class="gallery-overlay">
+                    <h3>Gestión de Departamentos</h3>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Inquilinos">
+                <div class="gallery-overlay">
+                    <h3>Control de Inquilinos</h3>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Personal">
+                <div class="gallery-overlay">
+                    <h3>Administración de Personal</h3>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Finanzas">
+                <div class="gallery-overlay">
+                    <h3>Módulo Financiero</h3>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Reportes">
+                <div class="gallery-overlay">
+                    <h3>Reportes y Análisis</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Analytics">
+                <div class="gallery-overlay">
+                    <h3>Dashboard Analytics</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Seguridad">
+                <div class="gallery-overlay">
+                    <h3>Panel de Seguridad</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección Testimonios -->
+    <section id="testimonios">
+        <h2 class="section-title">Testimonios</h2>
+        <div class="testimonials-container">
+            <div class="testimonial">
+                <p class="testimonial-content">"Este sistema ha revolucionado la administración de nuestro edificio. La interfaz es intuitiva y todas las funciones están perfectamente integradas. ¡Recomendado al 100%!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="María López">
+                    </div>
+                    <div class="author-info">
+                        <h4>María López</h4>
+                        <p>Administradora de Edificio</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p class="testimonial-content">"Como propietario de múltiples edificios, este sistema me permite tener control total desde cualquier lugar. Los reportes financieros son muy detallados y precisos."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Carlos Martínez">
+                    </div>
+                    <div class="author-info">
+                        <h4>Carlos Martínez</h4>
+                        <p>Propietario Inmobiliario</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p class="testimonial-content">"La gestión de inquilinos nunca fue tan fácil. El sistema automatiza muchas tareas y nos ahorra horas de trabajo administrativo. Una herramienta indispensable."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ana Rodríguez">
+                    </div>
+                    <div class="author-info">
+                        <h4>Ana Rodríguez</h4>
+                        <p>Gerente de Propiedades</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección Contacto -->
+    <section id="contacto">
+        <h2 class="section-title">Contáctanos</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Información de Contacto</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h4>Dirección</h4>
+                        <p>Av. Principal #123, Zona Central, La Paz</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <h4>Teléfono</h4>
+                        <p>+591 2 2800000</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h4>Email</h4>
+                        <p>info@edificioadmin.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <h4>Horario de Soporte</h4>
+                        <p>Lunes a Viernes: 8:00 - 18:00</p>
+                        <p>Sábados: 9:00 - 14:00</p>
+                    </div>
+                </div>
+                
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.5943937829393!2d-68.1193087!3d-16.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTbCsDMwJzAwLjAiUyA2OMKwMDcnMDkuNSJX!5e0!3m2!1ses!2sbo!4v1640995200000!5m2!1ses!2sbo" width="100%" height="200" style="border-radius: 16px; border: none;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3>Solicitar Demostración</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="empresa">Empresa/Edificio</label>
+                        <input type="text" id="empresa" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" class="form-control" placeholder="Cuéntanos sobre tu edificio y necesidades..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Solicitar Demostración</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <i class="fas fa-building"></i> Edificio Admin
+                </div>
+                <p>Sistema integral de administración de edificios que combina tecnología, seguridad y eficiencia en una plataforma moderna y fácil de usar.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#testimonios">Testimonios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-hours">
+                <h3>Soporte Técnico</h3>
+                <p>Lunes a Viernes: 8:00 - 18:00</p>
+                <p>Sábados: 9:00 - 14:00</p>
+                <p>Domingos: Solo emergencias</p>
+                <p>24/7: Soporte crítico</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Sistema de Administración de Edificio. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
+    <script src="landing.js"></script>
+</body>
+</html>
