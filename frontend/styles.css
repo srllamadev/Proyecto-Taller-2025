@@ -539,6 +539,88 @@ section::before {
     box-shadow: 0 0 0 0.2rem rgba(171, 152, 122, 0.25);
 }
 
+/* Estilos específicos para select (desplegables) */
+select.form-control {
+    background: rgba(245, 245, 245, 0.1);
+    border: 1px solid rgba(245, 245, 245, 0.2);
+    color: var(--color-light);
+    cursor: pointer;
+    /* Estilos para la flecha del select */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F5F5F5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+select.form-control:focus {
+    background: rgba(245, 245, 245, 0.15);
+    border-color: var(--color-bronze);
+    box-shadow: 0 0 0 0.2rem rgba(171, 152, 122, 0.25);
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23AB987A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+}
+
+/* Estilo para las opciones del select */
+select.form-control option {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    padding: 8px 12px;
+    border: none;
+}
+
+/* Estilo para opciones seleccionadas/hovereadas */
+select.form-control option:checked,
+select.form-control option:hover {
+    background-color: var(--color-bronze);
+    color: var(--color-dark);
+}
+
+/* Estilo para la primera opción (placeholder) */
+select.form-control option[value=""] {
+    color: rgba(245, 245, 245, 0.6);
+    font-style: italic;
+}
+
+/* Estilos adicionales para mejor compatibilidad cross-browser */
+select.form-control::-ms-expand {
+    display: none; /* Ocultar flecha nativa en IE */
+}
+
+/* Estilo para el dropdown en navegadores WebKit */
+select.form-control::-webkit-scrollbar {
+    width: 8px;
+}
+
+select.form-control::-webkit-scrollbar-track {
+    background: var(--color-dark);
+}
+
+select.form-control::-webkit-scrollbar-thumb {
+    background: var(--color-bronze);
+    border-radius: 4px;
+}
+
+select.form-control::-webkit-scrollbar-thumb:hover {
+    background: #c4a883;
+}
+
+/* Forzar estilos para las opciones en todos los navegadores */
+select.form-control option {
+    background-color: var(--color-dark) !important;
+    color: var(--color-light) !important;
+    padding: 8px 12px !important;
+}
+
+select.form-control option:checked,
+select.form-control option:hover,
+select.form-control option:focus {
+    background-color: var(--color-bronze) !important;
+    color: var(--color-dark) !important;
+}
+
 textarea.form-control {
     min-height: 120px;
     resize: vertical;
