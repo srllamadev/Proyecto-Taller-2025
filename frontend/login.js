@@ -77,6 +77,18 @@ function validateRecaptcha() {
     return response && response.length > 0;
 }
 
+// Función mejorada para resetear reCAPTCHA sin causar parpadeo
+function resetRecaptchaSafely() {
+    try {
+        if (typeof grecaptcha !== 'undefined' && grecaptcha.getResponse && grecaptcha.getResponse()) {
+            grecaptcha.reset();
+            console.log('🔄 reCAPTCHA reseteado correctamente');
+        }
+    } catch (error) {
+        console.warn('⚠️ No se pudo resetear reCAPTCHA:', error);
+    }
+}
+
 // Función para realizar el login
 async function performLogin() {
     const username = document.getElementById('username').value.trim();
@@ -87,14 +99,17 @@ async function performLogin() {
         return;
     }
     
-    // Validar reCAPTCHA
-    const recaptchaResponse = grecaptcha.getResponse();
-    if (!recaptchaResponse) {
-        showLoginError('Por favor complete la verificación de reCAPTCHA');
-        return;
+    // Validar reCAPTCHA (omitir en desarrollo local)
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        console.log('🔧 Desarrollo local: omitiendo validación reCAPTCHA');
+    } else {
+        const recaptchaResponse = grecaptcha.getResponse();
+        if (!recaptchaResponse) {
+            showLoginError('Por favor complete la verificación de reCAPTCHA');
+            return;
+        }
+        console.log('✅ reCAPTCHA validado correctamente');
     }
-    
-    console.log('✅ reCAPTCHA validado correctamente');
     
     // Mostrar loading
     const loginButton = document.querySelector('.btn-login');
@@ -163,11 +178,8 @@ function showLoginError(message) {
         errorMessage.textContent = message;
         errorDiv.classList.remove('d-none');
         
-        // Reset reCAPTCHA en caso de error
-        if (typeof grecaptcha !== 'undefined') {
-            grecaptcha.reset();
-            console.log('🔄 reCAPTCHA reseteado tras error');
-        }
+        // Reset reCAPTCHA en caso de error usando función mejorada
+        resetRecaptchaSafely();
         
         // Auto-ocultar después de 5 segundos
         setTimeout(() => {
